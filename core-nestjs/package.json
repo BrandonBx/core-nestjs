@@ -4,6 +4,7 @@
   "description": "A core from the best typescript framework backend",
   "author": "Brandon Buxin",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",

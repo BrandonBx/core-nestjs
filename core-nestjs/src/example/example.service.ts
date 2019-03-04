@@ -14,4 +14,20 @@ export class ExampleService {
     async findAll(): Promise<Example[]> {
         return await this.exampleRepository.find();
     }
+
+    async find(id: number): Promise<Example> {
+        return await this.exampleRepository.findOne(id);
+    }
+
+    async update(id: number, currExemple: Example): Promise<Example> {
+        let exampleUpdate = await this.exampleRepository.findOne(id);
+        exampleUpdate = currExemple;
+        return await this.exampleRepository.save(exampleUpdate);
+    }
+
+    async delete(id: number) {
+        const exampleToDelete = await this.exampleRepository.findOne(id);
+        return await this.exampleRepository.delete(exampleToDelete);
+    }
 }
+

@@ -5,12 +5,12 @@ import {ExampleDto} from "./dto/example-dto";
 @Controller('example')
 export class ExampleController {
     @Get()
-    findAll(): Observable<any[]> {
+    findAll() {
         return of([]);
     }
 
     @Get(':id')
-    findOne(@Param('id') id: number): Observable<any> {
+    findOne(@Param('id') id: number) {
         return null;
     }
 

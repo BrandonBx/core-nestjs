@@ -8,7 +8,7 @@ import {Example} from './entity/example';
 
 const entities = [
     Example,
-]
+];
 
 @Module({
     imports: [

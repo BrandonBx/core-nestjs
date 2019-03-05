@@ -5,6 +5,9 @@ import {ExampleController} from './example/example.controller';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import {Connection} from 'typeorm';
 import {Example} from './entity/example';
+import { AuthService } from './auth/auth.service';
+import { UserService } from './user/user.service';
+import { HttpService } from './http/http.service';
 
 const entities = [
     Example,
@@ -16,7 +19,7 @@ const entities = [
         TypeOrmModule.forFeature([...entities]),
     ],
     controllers: [AppController, ExampleController],
-    providers: [AppService],
+    providers: [AppService, AuthService, UserService, HttpService],
 })
 export class AppModule {
     constructor(private readonly connection: Connection) {

@@ -19,9 +19,9 @@ export class ExampleService {
         return await this.exampleRepository.findOne(id);
     }
 
-    async update(id: number, currExemple: Example): Promise<Example> {
+    async update(id: number, currExample: Example): Promise<Example> {
         let exampleUpdate = await this.exampleRepository.findOne(id);
-        exampleUpdate = currExemple;
+        exampleUpdate = currExample;
         return await this.exampleRepository.save(exampleUpdate);
     }
 
@@ -30,4 +30,3 @@ export class ExampleService {
         return await this.exampleRepository.delete(exampleToDelete);
     }
 }
-

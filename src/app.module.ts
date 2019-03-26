@@ -7,7 +7,6 @@ import {Connection} from 'typeorm';
 import {Example} from './entity/example';
 import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
-import {HttpService} from './http/http.service';
 import {UserController} from './user/user.controller';
 import {HttpStrategy} from './strategies/http-strategy';
 
@@ -21,7 +20,7 @@ const entities = [
         TypeOrmModule.forFeature([...entities]),
     ],
     controllers: [AppController, ExampleController, UserController],
-    providers: [AppService, AuthService, UserService, HttpService, HttpStrategy],
+    providers: [AppService, AuthService, UserService, HttpStrategy],
 })
 export class AppModule {
     constructor(private readonly connection: Connection) {

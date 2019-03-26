@@ -6,11 +6,8 @@ export class User {
     id: number;
 
     @Column({length: 50})
-    name: string;
+    firstname: string;
 
     @Column({length: 50})
-    surname: string;
-
-    @Column()
-    age: number;
+    lastname: string;
 }

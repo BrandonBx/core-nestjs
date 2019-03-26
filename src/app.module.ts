@@ -5,10 +5,11 @@ import {ExampleController} from './example/example.controller';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import {Connection} from 'typeorm';
 import {Example} from './entity/example';
-import { AuthService } from './auth/auth.service';
-import { UserService } from './user/user.service';
-import { HttpService } from './http/http.service';
-import { UserController } from './user/user.controller';
+import {AuthService} from './auth/auth.service';
+import {UserService} from './user/user.service';
+import {HttpService} from './http/http.service';
+import {UserController} from './user/user.controller';
+import {HttpStrategy} from './strategies/http-strategy';
 
 const entities = [
     Example,
@@ -20,7 +21,7 @@ const entities = [
         TypeOrmModule.forFeature([...entities]),
     ],
     controllers: [AppController, ExampleController, UserController],
-    providers: [AppService, AuthService, UserService, HttpService],
+    providers: [AppService, AuthService, UserService, HttpService, HttpStrategy],
 })
 export class AppModule {
     constructor(private readonly connection: Connection) {

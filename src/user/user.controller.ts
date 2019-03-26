@@ -1,9 +1,10 @@
-import {Controller, Get, Post, Put} from '@nestjs/common';
+import {Controller, Get, Post, Put, UseGuards} from '@nestjs/common';
 
 @Controller('user')
 export class UserController {
 
     @Get()
+    @UseGuards(AuthGuard('bearer'))
     findAll(): string {
         return 'this act'
     }

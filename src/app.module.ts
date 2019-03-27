@@ -9,9 +9,11 @@ import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
 import {UserController} from './user/user.controller';
 import {HttpStrategy} from './strategies/http-strategy';
+import {User} from './entity/user';
 
 const entities = [
     Example,
+    User,
 ];
 
 @Module({
@@ -21,6 +23,7 @@ const entities = [
     ],
     controllers: [AppController, ExampleController, UserController],
     providers: [AppService, AuthService, UserService, HttpStrategy],
+    exports: []
 })
 export class AppModule {
     constructor(private readonly connection: Connection) {

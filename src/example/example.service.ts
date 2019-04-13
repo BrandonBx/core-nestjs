@@ -1,6 +1,6 @@
 import {HttpService, Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {Example} from '../entity/example';
+import {Example} from '../entity/example.entity';
 import {Repository} from 'typeorm';
 
 @Injectable()

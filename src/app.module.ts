@@ -2,14 +2,14 @@ import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {ExampleController} from './example/example.controller';
-import {TypeOrmModule} from '@nestjs/typeorm'
+import {TypeOrmModule} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {Example} from './entity/example';
+import {Example} from './entity/example.entity';
 import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
 import {UserController} from './user/user.controller';
 import {HttpStrategy} from './strategies/http-strategy';
-import {User} from './entity/user';
+import {User} from './entity/user.entity';
 
 const entities = [
     Example,

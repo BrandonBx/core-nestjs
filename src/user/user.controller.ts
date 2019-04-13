@@ -1,7 +1,7 @@
 import {Controller, Get, Post, Put, UseGuards} from '@nestjs/common';
 import {AuthGuard} from '@nestjs/passport';
 
-@Controller('user')
+@Controller('user.entity.ts.entity.ts')
 export class UserController {
 
     @Get()

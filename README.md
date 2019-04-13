@@ -30,6 +30,8 @@
 
 ## Installation
 
+!!! Copy ormconfig_example in \root\ and past with this name ormconfig
+
 ```bash
 $ npm install
 ```

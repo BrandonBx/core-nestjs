@@ -10,6 +10,9 @@ import {UserService} from './user/user.service';
 import {UserController} from './user/user.controller';
 import {HttpStrategy} from './strategies/http-strategy';
 import {User} from './entity/user.entity';
+import {PassportModule} from '@nestjs/passport';
+import {JwtService} from './jwt/jwt.service';
+import {JwtModule} from '@nestjs/jwt';
 
 const entities = [
     Example,
@@ -18,11 +21,21 @@ const entities = [
 
 @Module({
     imports: [
+        // Orm
         TypeOrmModule.forRoot(),
         TypeOrmModule.forFeature([...entities]),
+
+        // Authentication
+        PassportModule.register({defaultStrategy: 'bearer'}),
+        JwtModule.register({
+            secretOrPrivateKey: 'secretKey',
+            signOptions: {
+                expiresIn: 3600,
+            }
+        })
     ],
     controllers: [AppController, ExampleController, UserController],
-    providers: [AppService, AuthService, UserService, HttpStrategy],
+    providers: [AppService, AuthService, UserService, HttpStrategy, JwtService],
     exports: []
 })
 export class AppModule {

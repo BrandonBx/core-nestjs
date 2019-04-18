@@ -7,9 +7,14 @@ import {InjectRepository} from '@nestjs/typeorm';
 export class UserService {
     constructor(
         @InjectRepository(User) private readonly userRepository: Repository<User>,
-    ) {}
+    ) {
+    }
 
     async findOneByToken(token: string) {
         this.userRepository.findOne(token);
+    }
+
+    async findOneByEmail(email: string) {
+        this.userRepository.findOne()
     }
 }

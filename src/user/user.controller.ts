@@ -5,22 +5,25 @@ import {AuthGuard} from '@nestjs/passport';
 export class UserController {
 
     @Get()
-    @UseGuards(AuthGuard('bearer'))
+    @UseGuards(AuthGuard())
     findAll(): string {
         return 'this act'
     }
 
     @Get()
+    @UseGuards(AuthGuard())
     find(id: number){
         return 0;
     }
 
     @Post()
+    @UseGuards(AuthGuard())
     create(){
         return null;
     }
 
     @Put()
+    @UseGuards(AuthGuard())
     update(){
         return null;
     }

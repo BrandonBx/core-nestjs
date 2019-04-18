@@ -13,6 +13,7 @@ import {User} from './entity/user.entity';
 import {PassportModule} from '@nestjs/passport';
 import {JwtService} from './jwt/jwt.service';
 import {JwtModule} from '@nestjs/jwt';
+import { AuthController } from './auth/auth.controller';
 
 const entities = [
     Example,
@@ -26,7 +27,7 @@ const entities = [
         TypeOrmModule.forFeature([...entities]),
 
         // Authentication
-        PassportModule.register({defaultStrategy: 'bearer'}),
+        PassportModule.register({defaultStrategy: 'jwt'}),
         JwtModule.register({
             secretOrPrivateKey: 'secretKey',
             signOptions: {
@@ -34,7 +35,7 @@ const entities = [
             }
         })
     ],
-    controllers: [AppController, ExampleController, UserController],
+    controllers: [AppController, ExampleController, UserController, AuthController],
     providers: [AppService, AuthService, UserService, HttpStrategy, JwtService],
     exports: []
 })
